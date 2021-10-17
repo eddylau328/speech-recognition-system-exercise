@@ -159,17 +159,24 @@ def find_confusion_matrix(path, recordings_A, recordings_B):
 
 
 def answer_q5(path, record_pairs, recordings_A, recordings_B):
+
+    # 5a
+    for record in recordings_A + recordings_B:
+        signal, frame_rate = get_signal(path, record)
+        mfcc_paramter = find_mfcc_paramter(signal, frame_rate)
+        np.savetxt("plot/mfcc_parameter_{}.csv".format(record), mfcc_paramter, delimiter=',')
+
+
     for pair in record_pairs: 
         signal_A, frame_rate_A = get_signal(path, pair[0])
         signal_B, frame_rate_B = get_signal(path, pair[1])
         signal_C, frame_rate_C = get_signal(path, pair[2])
 
-        # 5a
+        # 5b
         mfcc_paramter_A = find_mfcc_paramter(signal_A, frame_rate_A)
         mfcc_paramter_B = find_mfcc_paramter(signal_B, frame_rate_B)
         mfcc_paramter_C = find_mfcc_paramter(signal_C, frame_rate_C)
 
-        # 5b
         minimum_accumulated_score = find_min_accumulated_score(mfcc_paramter_A, mfcc_paramter_B)
         print('Minimum Accumulated Score for {} to {} = {}'.format(pair[0], pair[1], minimum_accumulated_score))
         minimum_accumulated_score = find_min_accumulated_score(mfcc_paramter_A, mfcc_paramter_C)
@@ -177,6 +184,9 @@ def answer_q5(path, record_pairs, recordings_A, recordings_B):
 
     # 5c
     confusion_matrix = find_confusion_matrix(path, recordings_A, recordings_B)
+    np.savetxt("plot/confusion-matrix.csv", confusion_matrix, delimiter=',')
+
+
 
     # 5d
     find_optimal_path(path, record_pairs)

@@ -13,14 +13,14 @@ def plot_signal(path, filename):
     plt.figure(1)
     plt.title("{filename} Signal Wave".format(filename=filename))
     plt.plot(signal)
-    plt.savefig('plot/{filename}-signal.jpg'.format(filename=filename))
+    plt.savefig('plot/{filename}.jpg'.format(filename=filename))
     plt.show()
 
 
 def answer_q3(path, filenames):
     for filename in filenames:
         plot_signal(path, filename)
-        print('Save plot/{filename}-signal.jpg'.format(filename=filename))
+        print('Save plot/{filename}.jpg'.format(filename=filename))
 
 
 if (__name__ == '__main__'):

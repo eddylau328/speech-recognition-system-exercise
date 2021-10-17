@@ -8,6 +8,8 @@ from hw1_5 import answer_q5
 def init():
     if (not os.path.exists('./plot')):
         os.makedirs('./plot')
+    if (not os.path.exists('./visualize')):
+        os.makedirs('./visualize')
 
 
 if (__name__ == '__main__'):

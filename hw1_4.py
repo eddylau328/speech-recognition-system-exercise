@@ -128,7 +128,7 @@ def detect_endpoint(filename, raw_signal, frame_rate):
                      1000, edgecolor='red', facecolor='white'))
     else:
         print('End Point cannot find')
-    plt.savefig('plot/{}-end-point-detection.jpg'.format(filename))
+    plt.savefig('visualize/{}-end-point-detection.jpg'.format(filename))
     plt.show()
     return signal, normalized_signal, start_time, end_time
 
@@ -155,7 +155,7 @@ def plot_fourier_transform(filename, signal):
     result = np.sqrt(np.square(X_real) + np.square(X_img))
     plt.title("{filename} Fourier Transform".format(filename=filename))
     plt.plot(result)
-    plt.savefig('plot/{}-fourier-transform.jpg'.format(filename))
+    plt.savefig('plot/fourier_{}.jpg'.format(filename))
     plt.show()
 
 
@@ -168,7 +168,7 @@ def pre_emphasis(filename, signal, pre_emphasis_constant):
         "{filename} Pre-emphasis Signal & Signal Segment".format(filename=filename))
     plt.plot(signal)
     plt.plot(pre_emphasis_signal)
-    plt.savefig('plot/{}-pre-emphasis-signal.jpg'.format(filename))
+    plt.savefig('plot/pre_emphasis_{}.jpg'.format(filename))
     plt.show()
     return pre_emphasis_signal
 
@@ -210,6 +210,7 @@ def answer_q4(path, filenames=[]):
         print('Target: {}.wav'.format(filename))
         print('framerate: {}'.format(frame_rate))
         print('Total frames: {}'.format(total_frame))
+        print()
 
         # 4a
         signal, normalized_signal, start_time, end_time = detect_endpoint(
