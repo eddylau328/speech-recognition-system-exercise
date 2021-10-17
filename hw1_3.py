@@ -20,6 +20,7 @@ def plot_signal(path, filename):
 def answer_q3(path, filenames):
     for filename in filenames:
         plot_signal(path, filename)
+        print('Save plot/{filename}-signal.jpg'.format(filename=filename))
 
 
 if (__name__ == '__main__'):

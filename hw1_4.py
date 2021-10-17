@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import wave
 
-from numpy.core.fromnumeric import transpose
-
 
 def sgn(value):
     return -1 if value < 0 else 1
@@ -209,7 +207,6 @@ def answer_q4(path, filenames=[]):
         raw_signal = spf.readframes(-1)
         frame_rate = spf.getframerate()
         total_frame = spf.getnframes()
-        print('---------------------------')
         print('Target: {}.wav'.format(filename))
         print('framerate: {}'.format(frame_rate))
         print('Total frames: {}'.format(total_frame))
