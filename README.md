@@ -1,9 +1,5 @@
 # CMSC5707 Assigment 1
 
-Student Name: Lau Ying Yeung, Eddy
-
-Student ID: 1155093989
-
 ### For running the program,
 Firstly, make sure to install or use Python 3.8.12 for running this program.
 
